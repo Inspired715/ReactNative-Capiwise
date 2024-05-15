@@ -46,18 +46,20 @@ export default function CloseAccStep2() {
       <View style={styles.passwordIcon}>
         <ToolVector />
       </View>
-      <Text style={styles.title}>
-        Before you go
-      </Text>
-      <Text style={styles.subTitle}>
-        If you‘re having issues with your account, or want to update your
-        account information, you can edit your account details (simply use our
-        Contact Us form for assistance).
-      </Text>
-      <Text style={styles.subTitle}>
-        If you still want to leave, we need to explain what‘s going to happen
-        after your delete your account.
-      </Text>
+      <View style={{height:300}}>
+        <Text style={styles.title}>
+          Before you go
+        </Text>
+        <Text style={styles.subTitle}>
+          If you‘re having issues with your account, or want to update your
+          account information, you can edit your account details (simply use our
+          Contact Us form for assistance).
+        </Text>
+        <Text style={styles.subTitle}>
+          If you still want to leave, we need to explain what‘s going to happen
+          after your delete your account.
+        </Text>
+      </View>
       <TouchableOpacity
         onPress={handleContactUs}
         style={styles.actionBtn}
@@ -92,7 +94,7 @@ const styles = StyleSheet.create({
   actionBtn:{
     height: 50,
     backgroundColor: "#2EBD85",
-    marginTop: 113,
+    marginTop: 50,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,

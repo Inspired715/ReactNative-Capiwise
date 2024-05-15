@@ -8,15 +8,15 @@ import Toast from 'react-native-toast-message';
 
 export default function Second({ navigation, route }) {
   const defaultFilter = [
-    { 'status': false, 'label': 'Financials', 'width':105},
-    { 'status': false, 'label': 'Banking', 'width':105},
-    { 'status': false, 'label': 'Technology', 'width':105},
-    { 'status': false, 'label': 'Healthcare', 'width':105},
-    { 'status': false, 'label': 'Energy', 'width':105},
-    { 'status': false, 'label': 'Education', 'width':105},
-    { 'status': false, 'label': 'Retail', 'width':105},
-    { 'status': false, 'label': 'Real State', 'width':105},
-    { 'status': false, 'label': 'Entertainment', 'width':135},
+    { 'status': false, 'label': 'Financials', 'width':104},
+    { 'status': false, 'label': 'Banking', 'width':104},
+    { 'status': false, 'label': 'Technology', 'width':104},
+    { 'status': false, 'label': 'Healthcare', 'width':104},
+    { 'status': false, 'label': 'Energy', 'width':104},
+    { 'status': false, 'label': 'Education', 'width':104},
+    { 'status': false, 'label': 'Retail', 'width':104},
+    { 'status': false, 'label': 'Real State', 'width':104},
+    { 'status': false, 'label': 'Entertainment', 'width':132},
   ]
   const [isLoading, setIsLoading] = useState(true)
   const leftValue = (Dimensions.get("window").width-30)/2 + 15
@@ -121,18 +121,59 @@ export default function Second({ navigation, route }) {
         <Text style={{fontSize: 16,color: "#979797",marginTop: 10,textAlign: "center",}}>
           Tell us about which sectors are you more interested.
         </Text>
-        <View style={[globalStyle.justifyCenter, {marginTop:40, flexWrap:'wrap', gap:7}]}>
-        {filterValues?.map((item, index) => {
-          return (
-            <TouchableOpacity
-              key={'filter' + index}
-              style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:item.width}]}
-              onPress={() => handleOption(index, item.status)}
-            >
-              <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
-            </TouchableOpacity>
-          )
-        })}
+        <View style={{flexDirection:'column', gap:5, marginTop:40}}>
+          <View style={[globalStyle.justifyCenter, {gap:16}]}>
+            {filterValues.slice(0,3)?.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={'filter' + index}
+                  style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:item.width}]}
+                  onPress={() => handleOption(index, item.status)}
+                >
+                  <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
+                </TouchableOpacity>
+              )
+            })}  
+          </View>
+          <View style={[globalStyle.justifyCenter, {gap:16}]}>
+            {filterValues.slice(3,6)?.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={'filter' + index}
+                  style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:item.width}]}
+                  onPress={() => handleOption(index+3, item.status)}
+                >
+                  <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
+                </TouchableOpacity>
+              )
+            })}  
+          </View>
+          <View style={[globalStyle.justifyCenter, {gap:16}]}>
+            {filterValues.slice(6,8)?.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={'filter' + index}
+                  style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:item.width}]}
+                  onPress={() => handleOption(index+6, item.status)}
+                >
+                  <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
+                </TouchableOpacity>
+              )
+            })}  
+          </View>
+          <View style={[globalStyle.justifyCenter, {gap:16}]}>
+            {filterValues.slice(8)?.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={'filter' + index}
+                  style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:item.width}]}
+                  onPress={() => handleOption(index+8, item.status)}
+                >
+                  <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
+                </TouchableOpacity>
+              )
+            })}  
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -178,6 +219,7 @@ const styles = StyleSheet.create({
     gap:5, 
     alignItems:'center', 
     marginHorizontal:15,
+    marginBottom:10
   },
   stepLabel:{
     color: "#979797",

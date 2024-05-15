@@ -145,5 +145,6 @@ const styles = StyleSheet.create({
     gap:5, 
     alignItems:'center', 
     marginHorizontal:15,
+    marginBottom:10
   },
 });

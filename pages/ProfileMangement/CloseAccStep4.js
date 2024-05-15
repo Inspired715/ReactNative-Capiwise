@@ -58,9 +58,10 @@ export default function CloseAccStep4() {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.passwordIcon}>
         <CloseAccountGraph/>
       </View>
+      <View style={{height:300}}>
       <Text style={styles.title}>
         You‘ll lose access to your activities and stock portfolio history
       </Text>
@@ -68,6 +69,7 @@ export default function CloseAccStep4() {
         By law, we‘re obliged to delete your data, but you‘ll no longer have
         access to your Capiwise activity and transaction history.
       </Text>
+      </View>
       <TouchableOpacity
         onPress={handleKeepAcc}
         style={styles.actionBtn}
@@ -112,11 +114,16 @@ const styles = StyleSheet.create({
   actionBtn:{
     height: 50,
     backgroundColor: "#2EBD85",
-    marginTop: 113,
+    marginTop: 50,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
     borderWidth: 0,
     width:'100%'
   },
+  passwordIcon: {
+    width: 56,
+    height: 56,
+    marginTop: 60,
+  }
 });

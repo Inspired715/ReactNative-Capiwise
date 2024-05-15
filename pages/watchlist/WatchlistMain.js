@@ -145,9 +145,9 @@ export default function WatchlistMain() {
     if (count > 0){
       msg = ""
       if (count > 1)
-        msg = "You have successfully removed " + count +  " items from your watchlist."
+        msg = `You have successfully removed ${count} items${"\n"}from your watchlist.`
       else
-        msg = "You have successfully removed " + count +  " item from your watchlist."
+        msg = `You have successfully removed ${count} items${"\n"}from your watchlist.`
       Toast.show({
         type: 'Capiwise_Success',
         position: "top",

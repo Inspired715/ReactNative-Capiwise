@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
         flagContainer: {
             borderTopLeftRadius: 7,
             borderBottomLeftRadius: 7,
-            backgroundColor: '#8888',
+            backgroundColor: 'transparent',
             justifyContent: 'center',
         },
         callingCode: {
@@ -189,8 +189,9 @@ const styles = StyleSheet.create({
     },
     phoneModal:{
         modal: {
-            backgroundColor: '#333333',
+            backgroundColor: '#040B11',
             borderWidth: 1,
+            borderColor:'#979797'
         },
         backdrop: {},
         divider: {
@@ -202,14 +203,14 @@ const styles = StyleSheet.create({
             borderWidth: 1,
             borderColor: '#FFF',
             color: '#FFF',
-            backgroundColor: '#333333',
+            backgroundColor: '#0B1620',
             paddingHorizontal: 12,
             height: 46,
         },
         countryButton: {
             borderWidth: 1,
-            borderColor: '#FFF',
-            backgroundColor: '#666666',
+            borderColor: '#979797',
+            backgroundColor: '#0B1620',
             marginVertical: 4,
             paddingVertical: 0,
         },

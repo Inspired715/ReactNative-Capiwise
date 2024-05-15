@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 
-import { CheckBox } from 'react-native-elements';
+import CheckBox from '@react-native-community/checkbox';
 import { Question } from "../../assets/img/Constant";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
@@ -159,15 +159,17 @@ export default function Login() {
               <Image source={passwordIcon} style={{ width: 18, height: 9, marginLeft: -30 }} />
             </TouchableOpacity>
           </View>
-          <View style={[globalStyle.alignItemsCenter, {marginTop:16, justifyContent:'space-between', width:'100%', paddingHorizontal:5}]}>
+          <View style={[globalStyle.alignItemsCenter, {marginTop:16, justifyContent:'space-between', width:'100%',}]}>
             <View style={globalStyle.alignItemsCenter}>
-              <CheckBox
-                containerStyle={styles.checkBox}
-                checkedColor={'#2EBD85'}
-                uncheckedColor={'#979797'}
-                checked={rememberMe}
-                onPress={() => handleRemberMe()}
-              />
+              <View style={styles.checkContainer}>
+                <View style={[styles.checkLayout, {backgroundColor:rememberMe?'#FFF':'transparent'}]}>
+                  <CheckBox
+                      style={{ transform: [{ scaleX: rememberMe?1.8:1.6 }, { scaleY: rememberMe?1.8:1.6 }]}}
+                      value={rememberMe}
+                      onValueChange={handleRemberMe}
+                  />
+                </View>
+              </View>
               <Text style={{color:'#FFF', fontSize:12, marginRight:10}}>Remember me &nbsp;</Text>
               <TouchableOpacity onPress={handleIconClick}>
                 <Question />
@@ -227,9 +229,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     color: "#FFF",
   },
-  checkBox: {
-    backgroundColor: '#040B11', padding: 0, marginLeft: 0
-  },
   textContainer: {
     width: '100%',
     backgroundColor: "#FFF",
@@ -246,5 +245,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-  }
+  },
+  checkContainer: {
+    alignItems:'center',
+    justifyContent:'center',
+    marginRight: 5,
+    backgroundColor: "#fff",
+    borderRadius:5,
+    borderWidth:1,
+    borderColor:'#979797',
+    backgroundColor:'transparent'
+},
+checkLayout:{
+    width:30, 
+    height:30, 
+    borderRadius:5,
+    alignItems:'center',
+    justifyContent:'center',
+}
 });

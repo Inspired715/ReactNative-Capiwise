@@ -138,7 +138,7 @@ export default function First({ navigation, route }) {
           <Text style={styles.subTitle}>
             I consider myself a/an:
           </Text>
-          <View style={[globalStyle.justifyBetween, {marginTop:16}]}>
+          <View style={[globalStyle.justifyCenter, {marginTop:16, gap:16}]}>
           {filterValues?.type.map((item, index) => {
             return (
               <TouchableOpacity
@@ -154,18 +154,33 @@ export default function First({ navigation, route }) {
           <Text style={styles.subTitle}>
             I like following and/or trading:
           </Text>
-          <View style={[globalStyle.justifyBetween, {marginTop:16, flexWrap:'wrap'}]}>
-          {filterValues?.trading.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={'filter' + index}
-                style={[item.status ? styles.filterItemActive : styles.filterItemInActive, {width:160}]}
-                onPress={() => handleOption("trading", index, item.status)}
-              >
-                <Text style={[globalStyle.h5, {fontSize:16, fontWeight:item.status?"bold":'normal'}]}>{item.label}</Text>
-              </TouchableOpacity>
-            )
-          })}
+          <View style={[globalStyle.justifyCenter, {marginTop:16, gap:16}]}>
+            <TouchableOpacity
+              style={[filterValues?.trading[0].status ? styles.filterItemActive : styles.filterItemInActive, {width:164}]}
+              onPress={() => handleOption("trading", 0, filterValues?.trading[0].status)}
+            >
+              <Text style={[globalStyle.h5, {fontSize:16, fontWeight:filterValues?.trading[0].status?"bold":'normal'}]}>{filterValues?.trading[0].label}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[filterValues?.trading[1].status ? styles.filterItemActive : styles.filterItemInActive, {width:164}]}
+              onPress={() => handleOption("trading", 1, filterValues?.trading[1].status)}
+            >
+              <Text style={[globalStyle.h5, {fontSize:16, fontWeight:filterValues?.trading[1].status?"bold":'normal'}]}>{filterValues?.trading[1].label}</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={[globalStyle.justifyCenter, {marginTop:5, gap:16}]}>
+            <TouchableOpacity
+              style={[filterValues?.trading[2].status ? styles.filterItemActive : styles.filterItemInActive, {width:164}]}
+              onPress={() => handleOption("trading", 2, filterValues?.trading[2].status)}
+            >
+              <Text style={[globalStyle.h5, {fontSize:16, fontWeight:filterValues?.trading[2].status?"bold":'normal'}]}>{filterValues?.trading[2].label}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[filterValues?.trading[3].status ? styles.filterItemActive : styles.filterItemInActive, {width:164}]}
+              onPress={() => handleOption("trading", 1, filterValues?.trading[3].status)}
+            >
+              <Text style={[globalStyle.h5, {fontSize:16, fontWeight:filterValues?.trading[3].status?"bold":'normal'}]}>{filterValues?.trading[3].label}</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -193,8 +208,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom:16,
-    width:100,
-    gap: 5
+    width:104,
   },
   filterItemInActive: {
     borderRadius: 50,
@@ -205,7 +219,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FFF',
     marginBottom:16,
-    width:100,
+    width:104,
   },
   nextBtn:{
     borderRadius:50,
@@ -213,6 +227,7 @@ const styles = StyleSheet.create({
     gap:5, 
     alignItems:'center', 
     marginHorizontal:15,
+    marginBottom:10
   },
   stepLabel:{
     color: "#979797",

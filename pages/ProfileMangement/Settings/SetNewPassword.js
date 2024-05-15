@@ -295,21 +295,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginBottom: 3,
   },
-  checkboxContainer: {
-    width: 20,
-    height: 20,
-    borderWidth: 1,
-    borderColor: "#979797",
-    borderRadius: 4,
-    marginRight: 4,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  checkbox: {
-    width: 12,
-    height: 12,
-    borderRadius: 2,
-  },
   iconRow: {
     flexDirection: "row",
     justifyContent: "space-between",

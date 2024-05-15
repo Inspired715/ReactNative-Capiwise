@@ -39,9 +39,10 @@ export default function CloseAccStep3() {
   }, [navigation]);
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.passwordIcon}>
         <CloseAccountExclamation/>
       </View>
+      <View style={{height:300}}>
       <Text style={styles.title}>
         You won‘t be able to open a new account
       </Text>
@@ -49,6 +50,7 @@ export default function CloseAccStep3() {
         For security, we let each customer have only one account, you‘ll need to
         reactivate your account to use us in the future.
       </Text>
+      </View>
       <TouchableOpacity
         onPress={handleKeepAcc}
         style={styles.actionBtn}>
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 24,
     marginTop: 30,
+    height:60,
     textAlign: "center",
   },
   subTitle:{
@@ -92,13 +95,18 @@ const styles = StyleSheet.create({
   actionBtn:{
     height: 50,
     backgroundColor: "#2EBD85",
-    marginTop: 113,
+    marginTop: 50,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
     borderWidth: 0,
     width:'100%'
   },
+  passwordIcon: {
+    width: 56,
+    height: 56,
+    marginTop: 60,
+  }
 });
 
 

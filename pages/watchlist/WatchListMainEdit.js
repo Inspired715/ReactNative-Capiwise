@@ -14,7 +14,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import { globalStyle } from "../../assets/css/globalStyle"
-import {CheckBox} from 'react-native-elements';
+import CheckComponent from "../../components/checkbox/CheckComponent";
 import { Close, DeleteWhite, Confirm_delete_icon } from "../../assets/img/Constant"
 import Api from "../../api/Api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -147,10 +147,7 @@ export default function WatchListMainEdit() {
             <View style={[globalStyle.container]}>
               <View style={[globalStyle.justifyBetween, { marginTop: 13, alignItems: 'center' }]}>
                 <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center', width:130}}>
-                  <CheckBox 
-                    containerStyle={styles.checkBox} 
-                    checkedColor={'#2EBD85'} 
-                    uncheckedColor={'#979797'} 
+                  <CheckComponent 
                     checked={itemStatus[index]?.status}
                     onPress={() => handleCheckBox(itemStatus[index]?.symbol)}
                   />
@@ -250,6 +247,7 @@ const styles = StyleSheet.create({
     gap:5, 
     alignItems:'center', 
     marginHorizontal:15,
+    marginBottom:10
   },
   confirmBtn:{
     width:150, 

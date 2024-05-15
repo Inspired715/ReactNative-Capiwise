@@ -198,7 +198,7 @@ export default function NEPPassword({ navigation, route }) {
                     <View style={{height:2, backgroundColor:securityStatus==2?'#2EBD85':'#979797', width:"30%"}} />
                 </View>
                 <Text style={{color:'#979797', marginTop:5}}>
-                    To have a strong password it must contain a letter, a number and be minimum of 9 characters.
+                    To have a strong password it must contain a capital letter, a number and be minimum of 9 characters.
                 </Text>
                 <View style={[globalStyle.alignItemsCenter, {marginTop:20}]}>
                     <TextInput

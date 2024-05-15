@@ -93,6 +93,12 @@ export default function VerifyUserScreen({ navigation, route }) {
     .catch(e => console.log(e))
   }
 
+  const handleKeyPress = (index, e) => {
+    if(e.key == "Backspace"){
+      if(index > 0)
+        focusInput(index - 1);
+    }
+  }
   useEffect(() => {
     startDecrease()
   }, []);
@@ -116,6 +122,7 @@ export default function VerifyUserScreen({ navigation, route }) {
                   maxLength={1}
                   value={digit}
                   onChangeText={(value) => handleInputChange(index, value)}
+                  onKeyPress={({ nativeEvent }) => handleKeyPress(index, nativeEvent)}
                 />
               </View>
             ))}
