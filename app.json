@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "cap",
+    "slug": "capiwise-android",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/logo_capiwise.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/img/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "white"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/img/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.capiwise.capiwiseandroid",
+      "permissions": ["INTERNET"]
+    },
+    "web": {
+      "favicon": "./assets/img/logo_capiwise.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5b88521e-d2d7-46d5-bca4-be2720654c17"
+      }
+    },
+    "owner": "capiwise"
+  }
+}

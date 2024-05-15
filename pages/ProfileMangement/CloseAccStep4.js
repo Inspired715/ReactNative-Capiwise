@@ -1,0 +1,122 @@
+import React, {useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Ionicons } from "@expo/vector-icons";
+import { CloseAccountGraph } from "../../assets/img/Constant"
+import { globalStyle } from "../../assets/css/globalStyle";
+import Api from "../../api/Api";
+import Toast from "react-native-toast-message";
+
+export default function CloseAccStep4() {
+  const navigation = useNavigation();
+  const handleDeleteUser = async() => {
+    const mail = await AsyncStorage.getItem("userEmail");
+    await Api.closeAccount({email:mail})
+    .then((res) => {
+      if(res.status == "success")
+        navigation.navigate('ClosureAcc');
+      else
+        Toast.show({
+          type: 'Capiwise_Error',
+          position:"top",
+          text1: "",
+          text2: res.message
+        });
+    })
+    .catch(e => console.log(e))
+  };
+
+  const handleKeepAcc = () => {
+    navigation.navigate("MainApp");
+  }
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      headerBackVisible: false,
+      headerTitle: () => (
+        <TouchableOpacity onPress={() => navigation.goBack()} style={globalStyle.alignItemsCenter}>
+          <Ionicons name="chevron-back-outline" size={24} color="#FFF" />
+          <Text style={{ color: "#FFF", fontSize: 24 }}>
+            Close account
+          </Text>
+        </TouchableOpacity>
+      ),
+      headerStyle: {
+        backgroundColor: "#040B11",
+      },
+      headerTintColor: "#FFF",
+    });
+  }, [navigation]);
+
+  return (
+    <View style={styles.container}>
+      <View>
+        <CloseAccountGraph/>
+      </View>
+      <Text style={styles.title}>
+        You‘ll lose access to your activities and stock portfolio history
+      </Text>
+      <Text style={styles.subTitle}>
+        By law, we‘re obliged to delete your data, but you‘ll no longer have
+        access to your Capiwise activity and transaction history.
+      </Text>
+      <TouchableOpacity
+        onPress={handleKeepAcc}
+        style={styles.actionBtn}
+      >
+        <Text style={{ color: "#FFF", fontSize: 16 }}>Keep account open</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={handleDeleteUser}
+        style={[styles.actionBtn, {backgroundColor: "transparent", borderWidth:1, borderColor:'#E2433B', marginTop:20}]}
+      >
+        <Text style={{ color: "#E2433B", fontSize: 16}}>
+          Close Account
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#040B11",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    paddingHorizontal: 20,
+    marginTop: 0,
+  },
+  title:{
+    color: "#FFF",
+    fontWeight: '700',
+    fontSize: 24,
+    marginTop: 30,
+    textAlign: "center",
+  },
+  subTitle:{
+    color: "#FFF",
+    fontSize: 16,
+    marginTop: 20,
+    fontWeight:'normal',
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  actionBtn:{
+    height: 50,
+    backgroundColor: "#2EBD85",
+    marginTop: 113,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 50,
+    borderWidth: 0,
+    width:'100%'
+  },
+});
